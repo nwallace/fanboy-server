@@ -1,0 +1,9 @@
+/.gitconfig
+
+/.env
+/.tconf
+
+/.bundle
+/.capistrano
+
+/log/*
