@@ -1,0 +1,4 @@
+#! /bin/sh
+
+env=${RACK_ENV:-development}
+bundle exec dotenv psql fanboy_$env

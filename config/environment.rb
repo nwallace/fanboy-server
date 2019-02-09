@@ -2,6 +2,7 @@ module Fanboy
 
   class Environment
     ENVS = %i[development test production]
+
     class InvalidEnvironmentError < StandardError
       def initialize(env)
         super "Invalid environment #{env.inspect}. Must e one of #{ENVS}"
@@ -23,6 +24,8 @@ module Fanboy
   end
 
   def self.env
+    require "dotenv/load"
+    ENV["RACK_ENV"] ||= "development"
     @env ||= Environment.new(ENV.fetch("RACK_ENV"))
   end
 end

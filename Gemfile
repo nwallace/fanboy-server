@@ -3,9 +3,13 @@ ruby "2.6.1"
 
 gem "sinatra", require: "sinatra/base"
 
-gem "pg"
-gem "activerecord"
+gem "rake"
 
+gem "pg"
+gem "activerecord", require: "active_record"
+gem "sinatra-activerecord"
+
+gem "dotenv", require: false
 gem "httparty"
 gem "pagy"
 
@@ -25,6 +29,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "rerun"
   gem "capistrano"
   gem "neovim"
 end
