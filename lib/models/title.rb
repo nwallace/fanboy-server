@@ -1,3 +1,5 @@
+require "models/application_record"
+
 module Fanboy
   module Models
     class Title < ApplicationRecord

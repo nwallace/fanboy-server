@@ -7,3 +7,6 @@
 /.capistrano
 
 /log/*
+
+/public/assets/images/titles/*
+/public/assets/images/tournaments/*

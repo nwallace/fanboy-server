@@ -1,3 +1,5 @@
+require "searches/application_search"
+
 module Fanboy
   module Presenters
     class ApplicationPresenter
@@ -11,6 +13,16 @@ module Fanboy
     class ResourceURIFormatter
       def call(request, record)
         "#{request.base_url}/api/v1/#{record.class.table_name}/#{record.to_param}"
+      end
+    end
+
+    class JSONFormatter
+      def initialize(field)
+        @field = field
+      end
+      def call(request, record)
+        value = record.public_send(@field)
+        value && value.to_json
       end
     end
   end

@@ -1,3 +1,13 @@
 #! /bin/sh
 
-bundle exec pry -r ./config/application
+requires="$( \
+  for i in config/application.rb \
+    lib/models/* \
+    lib/searches/* \
+    lib/presenters/*
+  do
+    echo " -r ./$i"
+  done \
+)"
+
+bundle exec pry $requires
