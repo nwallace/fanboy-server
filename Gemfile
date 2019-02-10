@@ -39,8 +39,10 @@ group :test do
   gem "database_cleaner"
   gem "webmock"
   gem "timecop"
+  gem "shoulda-matchers"
   gem "active_record_block_matchers"
   gem "fuubar"
+  gem "faker"
 
   gem "capybara"
   gem "cuprite", github: "machinio/cuprite"
