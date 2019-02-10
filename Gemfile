@@ -10,8 +10,7 @@ gem "activerecord", require: "active_record"
 gem "sinatra-activerecord"
 
 gem "dotenv", require: false
-gem "httparty"
-gem "pagy"
+gem "inquiry", github: "nwallace/inquiry"
 
 group :production do
   gem "unicorn"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_09_220841) do
+ActiveRecord::Schema.define(version: 2019_02_10_020613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,4 +26,17 @@ ActiveRecord::Schema.define(version: 2019_02_09_220841) do
     t.index ["slug"], name: "index_titles_on_slug"
   end
 
+  create_table "tournaments", force: :cascade do |t|
+    t.bigint "title_id", null: false
+    t.string "name", null: false
+    t.date "starts", null: false
+    t.date "ends"
+    t.string "logo_uri"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title_id", "starts"], name: "index_tournaments_on_title_id_and_starts"
+    t.index ["title_id"], name: "index_tournaments_on_title_id"
+  end
+
+  add_foreign_key "tournaments", "titles"
 end

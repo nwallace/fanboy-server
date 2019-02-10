@@ -1,27 +1,25 @@
 module Fanboy
   class Server < Sinatra::Base
 
-    get "/api/v1/titles" do
-      json(
-        titles: Models::Title.order(:priority, :name).map do |title|
-          {
-            name: title.name,
-            nickname: title.nickname,
-            developer: title.developer,
-            uri: uri("/api/v1/titles/#{title.slug}"),
-          }
-        end
-      )
-    end
+    %w[titles].each do |resource|
+      presenter_class = Presenters.const_get(resource.camelcase)
 
-    private
+      get "/api/v1/#{resource}" do
+        presenter = presenter_class.new(params)
+        to_json(presenter, resource)
+      end
 
-    def json(obj)
-      obj.to_json
-    end
+      private
 
-    def uri(path)
-      "#{request.base_url}#{path}"
+      def to_json(presenter, resource_name)
+        {
+          resource_name => presenter.rows.map do |row|
+            presenter.columns.zip(row.values).each_with_object({}) do |(column, value), hash|
+              hash[column.key] = value.render(request)
+            end
+          end
+        }.to_json
+      end
     end
   end
 end
