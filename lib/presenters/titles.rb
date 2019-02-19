@@ -12,6 +12,9 @@ module Fanboy
       column :logo_uri, default: true, formatter: -> (request, title) {
         "#{request.base_url}/assets/images/titles/logos/#{title.slug}.png"
       }
+      column :tournaments_uri, default: true, formatter: -> (request, title) {
+        "#{request.base_url}/api/v1/titles/#{title.slug}/tournaments"
+      }
 
       default_criteria sort_order: :priority
     end

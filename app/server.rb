@@ -11,9 +11,8 @@ module Fanboy
       list_to_json(presenter, "titles")
     end
 
-    get "/api/v1/titles/:id/tournaments" do |id|
-      puts params
-      presenter = Presenters::Tournaments.new(params)
+    get "/api/v1/titles/:slug/tournaments" do |slug|
+      presenter = Presenters::Tournaments.new(title_slug: slug)
       list_to_json(presenter, "tournaments")
     end
 

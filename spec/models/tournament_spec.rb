@@ -1,4 +1,3 @@
-require "db_helper"
 require_relative "../../lib/models/title"
 require_relative "../../lib/models/tournament"
 

@@ -12,9 +12,7 @@ module Fanboy
       column :uri, default: true, formatter: -> (request, tournament) {
         "#{request.base_url}/api/v1/titles/#{tournament.title.to_param}/tournaments/#{tournament.to_param}"
       }
-      column :logo_uri, default: true, formatter: -> (request, tournament) {
-        "#{request.base_url}#{tournament.logo_uri}"
-      }
+      column :logo_uri, default: true
 
       default_criteria sort_order: :start
     end
