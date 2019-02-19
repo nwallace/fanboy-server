@@ -1,5 +1,5 @@
-require_relative "../../lib/models/title"
-require_relative "../../lib/models/tournament"
+require "models/title"
+require "models/tournament"
 
 RSpec.describe Fanboy::Models::Tournament, type: :model do
 

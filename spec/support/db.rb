@@ -15,6 +15,7 @@ RSpec.configure do |config|
 
     FactoryBot.find_definitions
     # seed fixture data
+    require "models/title"
     FactoryBot.create(:title, name: "Counter Strike: Global Offensive", nickname: "CS:GO", slug: "csgo",
                       developer: "Valve Corporation", priority: 1)
   end
