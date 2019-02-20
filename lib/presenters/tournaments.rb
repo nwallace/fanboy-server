@@ -10,7 +10,7 @@ module Fanboy
       column :starts, default: true, formatter: JSONFormatter.new(:starts)
       column :ends, default: true, formatter: JSONFormatter.new(:ends)
       column :uri, default: true, formatter: -> (request, tournament) {
-        "#{request.base_url}/api/v1/titles/#{tournament.title.to_param}/tournaments/#{tournament.to_param}"
+        "#{request.base_url}/api/v1/tournaments/#{tournament.to_param}"
       }
       column :logo_uri, default: true
 

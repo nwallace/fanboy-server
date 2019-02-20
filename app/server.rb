@@ -1,5 +1,6 @@
 require "presenters/titles"
 require "presenters/tournaments"
+require "presenters/rounds"
 
 module Fanboy
   class Server < Sinatra::Base
@@ -14,6 +15,11 @@ module Fanboy
     get "/api/v1/titles/:slug/tournaments" do |slug|
       presenter = Presenters::Tournaments.new(title_slug: slug)
       list_to_json(presenter, "tournaments")
+    end
+
+    get "/api/v1/tournaments/:id" do |id|
+      presenter = Presenters::Rounds.new(tournament_id: id)
+      list_to_json(presenter, "rounds")
     end
 
     private

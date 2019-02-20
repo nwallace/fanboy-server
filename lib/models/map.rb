@@ -7,6 +7,8 @@ module Fanboy
 
       validates :title, presence: true
       validates :name, presence: true
+
+      delegate :name, to: :map
     end
   end
 end

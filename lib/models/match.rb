@@ -5,6 +5,7 @@ module Fanboy
       belongs_to :round
       belongs_to :map
       has_many :match_participations, dependent: :destroy
+      has_many :competitors, through: :match_participations
 
       validates :round, presence: true
       validates :map, presence: true

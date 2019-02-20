@@ -7,6 +7,8 @@ module Fanboy
 
       validates :competitor, presence: true
       validates :match, presence: true
+
+      delegate :name, :logo_uri, to: :competitor
     end
   end
 end
