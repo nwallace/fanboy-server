@@ -22,6 +22,10 @@ module Fanboy
       list_to_json(presenter, "rounds")
     end
 
+    get "/" do
+      html :index
+    end
+
     private
 
     def list_to_json(presenter, resource_name)
@@ -43,6 +47,10 @@ module Fanboy
           },
         },
       }.to_json
+    end
+
+    def html(view)
+      send_file File.join(settings.public_folder, "#{view}.html")
     end
   end
 end

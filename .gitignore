@@ -10,3 +10,5 @@
 
 /public/assets/images/titles/*
 /public/assets/images/tournaments/*
+
+/node_modules
