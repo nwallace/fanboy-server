@@ -1,10 +1,6 @@
 @import "settings/fonts";
 
-body {
-  @include type-style('default');
-  margin: 0 5em;
-}
+@import "elements/body";
+@import "elements/headers";
 
-h1, h2, h3, h4, h5, h6 {
-  @include type-style('title');
-}
+@import "layouts/app";

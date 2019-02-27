@@ -7,6 +7,13 @@ module Fanboy
 
     set :public_folder, "public"
 
+    before do
+      headers(
+        "Access-Control-Allow-Origin" => "*",
+        "Access-Control-Allow-Methods" => "*",
+      )
+    end
+
     get "/api/v1/titles" do
       presenter = Presenters::Titles.new(params)
       list_to_json(presenter, "titles")

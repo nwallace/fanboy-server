@@ -4,4 +4,4 @@ import App from './js/app';
 import 'normalize.css';
 import './scss/styles.scss';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('app'));
